@@ -1,8 +1,8 @@
 diff --git a/board/qemu/riscv32-virt/linux.config.fragment b/board/qemu/riscv32-virt/linux.config.fragment
-index bca9aa61c7..83daf23b2b 100644
+index bca9aa61c7..befeee5b5c 100644
 --- a/board/qemu/riscv32-virt/linux.config.fragment
 +++ b/board/qemu/riscv32-virt/linux.config.fragment
-@@ -1,12 +1,69 @@
+@@ -1,12 +1,74 @@
 +# CONFIG_SYSVIPC is not set
 +# CONFIG_IKCONFIG is not set
 +# CONFIG_CGROUPS is not set
@@ -17,6 +17,7 @@ index bca9aa61c7..83daf23b2b 100644
 +CONFIG_RD_LZO=y
 +CONFIG_RD_LZ4=y
 +# CONFIG_EXPERT is not set
++CONFIG_SHMEM=y
 +# CONFIG_BPF_SYSCALL is not set
  CONFIG_32BIT=y
  CONFIG_ARCH_RV32I=y
@@ -27,7 +28,6 @@ index bca9aa61c7..83daf23b2b 100644
 +# CONFIG_SMP is not set
 +CONFIG_TUNE_GENERIC=y
 +# CONFIG_RISCV_ISA_C is not set
-+CONFIG_RISCV_ISA_A=y
 +# CONFIG_FPU is not set
 +# CONFIG_PCI is not set
 +# CONFIG_MODULES is not set
@@ -41,6 +41,7 @@ index bca9aa61c7..83daf23b2b 100644
 +# CONFIG_SCSI is not set
 +# CONFIG_ATA is not set
 +CONFIG_INPUT=y
++# CONFIG_INPUT_MOUSEDEV is not set
 +CONFIG_INPUT_FF_MEMLESS=y
 +# CONFIG_VT_HW_CONSOLE_BINDING is not set
 +# CONFIG_SERIAL_8250 is not set
@@ -51,14 +52,17 @@ index bca9aa61c7..83daf23b2b 100644
 +# CONFIG_FB is not set
 +# CONFIG_BACKLIGHT_LCD_SUPPORT is not set
 +# CONFIG_USB is not set
++# CONFIG_VIRTIO_MMIO is not set
 +# CONFIG_SYNC_FILE is not set
-+CONFIG_CLKSRC_MMIO=y
-+CONFIG_OWL_TIMER=y
 +# CONFIG_RAS is not set
-+CONFIG_EXT2_FS=y
-+CONFIG_EXT4_FS=y
++# CONFIG_EXT2_FS is not set
++# CONFIG_EXT4_FS is not set
++# CONFIG_AUTOFS4_FS is not set
++# CONFIG_AUTOFS_FS is not set
++# CONFIG_MSDOS_FS is not set
++# CONFIG_VFAT_FS is not set
 +# CONFIG_PROC_CHILDREN is not set
-+# CONFIG_TMPFS is not set
++CONFIG_TMPFS=y
 +# CONFIG_NLS is not set
 +# CONFIG_KEYS is not set
 +# CONFIG_CRYPTO is not set
@@ -69,6 +73,7 @@ index bca9aa61c7..83daf23b2b 100644
  CONFIG_GENERIC_LIB_LSHRDI3=y
  CONFIG_GENERIC_LIB_UCMPDI2=y
 -CONFIG_GENERIC_LIB_UMODDI3=y
++# CONFIG_PRINTK_TIME is not set
 +CONFIG_FRAME_WARN=1024
 +# CONFIG_DEBUG_KERNEL is not set
 +CONFIG_DEBUG_MEMORY_INIT=y
