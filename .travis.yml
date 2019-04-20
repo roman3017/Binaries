@@ -1,0 +1,29 @@
+dist: xenial
+language: bash
+compiler: none
+cache: ccache
+
+addons:
+  apt:
+    packages:
+      - build-essential
+      - git
+      - make
+      - autoconf
+      - g++
+      - flex
+      - bison
+
+before_script:
+- git clone https://github.com/riscv/riscv-qemu.git /tmp/qemu;
+  pushd /tmp/qemu;
+  git submodule update --init --recursive &&
+  git checkout origin/riscv-qemu-3.1 &&
+  ./configure --target-list=riscv32-softmmu &&
+  make -j4;
+  popd;
+
+script:
+#- /tmp/qemu/riscv32-softmmu/qemu-system-riscv32 -nographic -M virt -kernel fw_jump.elf -dtb rv32.dtb -device loader,file=Image,addr=0x80400000 -initrd rootfs.cpio -append "console=hvc0 root=/dev/ram0 rootfstype=ramfs init=/init"
+- /tmp/qemu/riscv32-softmmu/qemu-system-riscv32 -nographic -machine virt -m 1536M -device loader,file=emulator-qemu.bin,addr=0x80000000,cpu-num=0 -device loader,file=rv32.dtb,addr=0xC3000000 -device loader,file=Image,addr=0xC0000000  -device loader,file=rootfs.cpio,addr=0xC2000000
+

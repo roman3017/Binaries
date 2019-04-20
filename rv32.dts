@@ -47,7 +47,7 @@
 			};
 		};
 
-		interrupt-controller {
+		interrupt-controller@e000000 {
 			#address-cells = <0x0>;
 			#interrupt-cells = <0x1>;
 			compatible = "riscv,vex";
