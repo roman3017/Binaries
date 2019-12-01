@@ -1,0 +1,180 @@
+Archive member included to satisfy reference by file (symbol)
+
+/opt/riscv64-unknown-elf-gcc-20171231-x86_64-linux-centos6/bin/../lib/gcc/riscv64-unknown-elf/7.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-init.o)
+                              build/src/start.o (__libc_init_array)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ram              0x0000000070000000 0x0000000000002000 axwl !r
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD build/src/hal.o
+LOAD build/src/main.o
+LOAD build/src/start.o
+LOAD build/src/trap.o
+LOAD build/src/utils.o
+LOAD /opt/riscv64-unknown-elf-gcc-20171231-x86_64-linux-centos6/bin/../lib/gcc/riscv64-unknown-elf/7.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a
+LOAD /opt/riscv64-unknown-elf-gcc-20171231-x86_64-linux-centos6/bin/../lib/gcc/riscv64-unknown-elf/7.2.0/rv32im/ilp32/libgcc.a
+                0x0000000000000400                __stack_size = DEFINED (__stack_size)?__stack_size:0x400
+
+.init           0x0000000070000000       0x7c
+ *(SORT(.init))
+ .init          0x0000000070000000       0x7c build/src/start.o
+                0x0000000070000000                _start
+                0x0000000070000078                _init
+
+.text           0x000000007000007c      0xa60
+ *(.text.unlikely .text.unlikely.*)
+ *(.text.startup .text.startup.*)
+ *(.text .text.*)
+ .text          0x000000007000007c       0xb4 build/src/hal.o
+                0x000000007000007c                stopSim
+                0x00000000700000b0                putC
+                0x00000000700000cc                getC
+                0x00000000700000fc                rdtime
+                0x0000000070000108                rdtimeh
+                0x0000000070000114                setMachineTimerCmp
+                0x000000007000012c                halInit
+ .text          0x0000000070000130      0x814 build/src/main.o
+                0x0000000070000130                putHex
+                0x0000000070000198                putString
+                0x00000000700001cc                setup_pmp
+                0x00000000700001ec                init
+                0x0000000070000264                readRegister
+                0x000000007000027c                writeRegister
+                0x0000000070000294                redirectTrap
+                0x00000000700002cc                emulationTrapToSupervisorTrap
+                0x000000007000032c                readWord
+                0x0000000070000360                readWordUnaligned
+                0x00000000700003b8                readHalfUnaligned
+                0x00000000700003f8                writeWord
+                0x0000000070000428                writeWordUnaligned
+                0x0000000070000470                writeShortUnaligned
+                0x00000000700004a8                readInstruction
+                0x0000000070000528                trap
+ .text          0x0000000070000944        0x0 build/src/start.o
+ .text          0x0000000070000944      0x100 build/src/trap.o
+                0x0000000070000944                trapEntry
+ .text          0x0000000070000a44        0x0 build/src/utils.o
+ .text          0x0000000070000a44       0x98 /opt/riscv64-unknown-elf-gcc-20171231-x86_64-linux-centos6/bin/../lib/gcc/riscv64-unknown-elf/7.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-init.o)
+                0x0000000070000a44                __libc_init_array
+ *(.gnu.linkonce.t.*)
+ *(.note.gnu.build-id)
+
+.rela.dyn       0x0000000070000adc        0x0
+ .rela.text     0x0000000070000adc        0x0 build/src/hal.o
+ .rela.init     0x0000000070000adc        0x0 build/src/hal.o
+
+.fini
+ *(SORT(.fini))
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+                0x0000000070000adc                . = ALIGN (0x4)
+
+.preinit_array  0x0000000070000adc        0x0
+                0x0000000070000adc                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x0000000070000adc                PROVIDE (__preinit_array_end, .)
+
+.init_array     0x0000000070000adc        0x0
+                0x0000000070000adc                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*) SORT(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                0x0000000070000adc                PROVIDE (__init_array_end, .)
+
+.fini_array     0x0000000070000adc        0x0
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*) SORT(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.lalign         0x0000000070000adc        0x0
+                0x0000000070000adc                . = ALIGN (0x4)
+                0x0000000070000adc                PROVIDE (_data_lma, .)
+
+.dalign         0x0000000070000adc        0x0
+                0x0000000070000adc                . = ALIGN (0x4)
+                0x0000000070000adc                PROVIDE (_data, .)
+
+.data           0x0000000070000adc       0x6c
+ *(.rdata)
+ *(.rodata .rodata.*)
+ .rodata.str1.4
+                0x0000000070000adc       0x1b build/src/hal.o
+ *fill*         0x0000000070000af7        0x1 
+ .rodata.str1.4
+                0x0000000070000af8       0x50 build/src/main.o
+                                         0x52 (size before relaxing)
+ *(.gnu.linkonce.r.*)
+ *(.data .data.*)
+ .data          0x0000000070000b48        0x0 build/src/hal.o
+ .data          0x0000000070000b48        0x0 build/src/main.o
+ .data          0x0000000070000b48        0x0 build/src/start.o
+ .data          0x0000000070000b48        0x0 build/src/trap.o
+ .data          0x0000000070000b48        0x0 build/src/utils.o
+ .data          0x0000000070000b48        0x0 /opt/riscv64-unknown-elf-gcc-20171231-x86_64-linux-centos6/bin/../lib/gcc/riscv64-unknown-elf/7.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-init.o)
+ *(.gnu.linkonce.d.*)
+                0x0000000070000b48                . = ALIGN (0x8)
+                [!provide]                        PROVIDE (__global_pointer$, (. + 0x7f0))
+ *(.sdata .sdata.*)
+ *(.gnu.linkonce.s.*)
+                0x0000000070000b48                . = ALIGN (0x8)
+ *(.srodata.cst16)
+ *(.srodata.cst8)
+ *(.srodata.cst4)
+ *(.srodata.cst2)
+ *(.srodata .srodata.*)
+                0x0000000070000b48                . = ALIGN (0x4)
+                0x0000000070000b48                PROVIDE (_edata, .)
+                [!provide]                        PROVIDE (edata, .)
+                [!provide]                        PROVIDE (_fbss, .)
+                0x0000000070000b48                PROVIDE (__bss_start, .)
+
+.bss            0x0000000070000b48        0x0
+ *(.sbss*)
+ *(.gnu.linkonce.sb.*)
+ *(.bss .bss.*)
+ .bss           0x0000000070000b48        0x0 build/src/hal.o
+ .bss           0x0000000070000b48        0x0 build/src/main.o
+ .bss           0x0000000070000b48        0x0 build/src/start.o
+ .bss           0x0000000070000b48        0x0 build/src/trap.o
+ .bss           0x0000000070000b48        0x0 build/src/utils.o
+ .bss           0x0000000070000b48        0x0 /opt/riscv64-unknown-elf-gcc-20171231-x86_64-linux-centos6/bin/../lib/gcc/riscv64-unknown-elf/7.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-init.o)
+ *(.gnu.linkonce.b.*)
+ *(COMMON)
+                0x0000000070000b48                . = ALIGN (0x4)
+                0x0000000070000b48                . = ALIGN (0x8)
+                0x0000000070000b48                PROVIDE (_end, .)
+                [!provide]                        PROVIDE (end, .)
+                0x0000000070000b50                . = ALIGN (0x10)
+
+.stack          0x0000000070000b48      0x400
+                [!provide]                        PROVIDE (_heap_end, .)
+                0x0000000000000400                . = __stack_size
+ *fill*         0x0000000070000b48      0x400 
+                0x0000000070000f48                PROVIDE (_sp, .)
+OUTPUT(build/machineModeSbi.elf elf32-littleriscv)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 build/src/hal.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 build/src/main.o
+ .comment       0x0000000000000011       0x12 /opt/riscv64-unknown-elf-gcc-20171231-x86_64-linux-centos6/bin/../lib/gcc/riscv64-unknown-elf/7.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-init.o)
