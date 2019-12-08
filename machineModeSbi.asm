@@ -32,7 +32,7 @@ Disassembly of section .init:
 70000060:	00000097          	auipc	ra,0x0
 70000064:	01408093          	addi	ra,ra,20 # 70000074 <done>
 70000068:	00000513          	li	a0,0
-7000006c:	805f05b7          	lui	a1,0x805f0
+7000006c:	80ff05b7          	lui	a1,0x80ff0
 70000070:	30200073          	mret
 
 70000074 <done>:
@@ -173,7 +173,7 @@ Disassembly of section .text:
 70000224:	88078793          	addi	a5,a5,-1920 # 880 <__stack_size+0x480>
 70000228:	30079073          	csrw	mstatus,a5
 7000022c:	30405073          	csrwi	mie,0
-70000230:	800007b7          	lui	a5,0x80000
+70000230:	804007b7          	lui	a5,0x80400
 70000234:	34179073          	csrw	mepc,a5
 70000238:	0000b7b7          	lui	a5,0xb
 7000023c:	10078793          	addi	a5,a5,256 # b100 <__stack_size+0xad00>
@@ -257,7 +257,7 @@ Disassembly of section .text:
 7000034c:	00020737          	lui	a4,0x20
 70000350:	30073073          	csrc	mstatus,a4
 70000354:	00068513          	mv	a0,a3
-70000358:	00f5a023          	sw	a5,0(a1) # 805f0000 <_sp+0x105ef0b8>
+70000358:	00f5a023          	sw	a5,0(a1) # 80ff0000 <_sp+0x10fef0b8>
 7000035c:	00008067          	ret
 
 70000360 <readWordUnaligned>:
